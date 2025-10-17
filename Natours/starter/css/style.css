@@ -6,3 +6,28 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/*  universal selector selects each and every element on the page 
+and then apply these declarations on them. These CSS rules are called "simple reset".
+This is needed because browsers apply some margins or padding by default to certain elements
+
+ */
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* border-box - borders and paddings are no longer added to the total width or height
+that we specify to the box */
+
+/* we specify font in body, but not in universal selector because the properties
+related to font are usually inherited */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; 
+    /* 1.7 times bigger than the predefined line-height that we would have without this; */
+    color: #777;
+}
