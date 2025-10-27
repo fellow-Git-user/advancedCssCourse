@@ -30,4 +30,23 @@ body {
     line-height: 1.7; 
     /* 1.7 times bigger than the predefined line-height that we would have without this; */
     color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, 
+    rgba(116, 193, 102, 0.8), 
+    rgba(40, 180, 133, 0.8)),
+     url(../img/hero.jpg);
+    /* to specify gradient we always use the background-image property.
+      We want the background to stay on top and so it actually has to be
+      the first background-image that we specify. WE put gradient, then comma img*/
+    background-size: cover;
+    /* whatever the width of the viewport or the element it will always
+    try to fit the element inside the box   */
+    background-position: top;
+    /* ensures whatever the viewport size the top of the image is always 
+    stays at the top of container */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
