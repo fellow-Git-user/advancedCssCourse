@@ -67,6 +67,7 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary{
@@ -76,6 +77,7 @@ body {
     /* sometimes animations look like the move to the tope a tiny bit.
     Actually its the entire parent element that moves and gives that shaky effect.
     backface-visibility: hidden prevents this shakiness from happening */
+    margin-bottom: 60px;
 }
 .heading-primary-main{
     display: block;
@@ -133,4 +135,29 @@ different properties. One is opacity and the other is transform */
         opacity: 1;
         transform: translate(0);
     }
+}
+
+.btn:link, 
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    /* inline-block elements are treated as if they are text */
+    border-radius: 100px;
+    transition: all .2s;
+    /* all - we dont need to specify each and every property. All properties are enabled to
+    to be animated */
+}
+.btn:hover {
+    transform: translateY(-3px);
+}
+.btn:active{
+    transform: translateY(-1px);
+
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
