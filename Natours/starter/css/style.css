@@ -136,6 +136,17 @@ different properties. One is opacity and the other is transform */
         transform: translate(0);
     }
 }
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
 
 .btn:link, 
 .btn:visited{
@@ -147,17 +158,60 @@ different properties. One is opacity and the other is transform */
     border-radius: 100px;
     transition: all .2s;
     /* all - we dont need to specify each and every property. All properties are enabled to
-    to be animated */
+    to be animated. So hover and active will be animated in relation to 
+    their initial state (in this case it is link and visited)
+
+     Transition must be on the initial state. SO on the initial state we say that can be transition on all the properties
+     and on the hover (or others) we say how it should look like
+     */
+    position: relative; /* this is needed because main button 
+    should be reference to the ::after  pseudo */
 }
 .btn:hover {
     transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 }
 .btn:active{
     transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
 
 }
 
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+.btn::after{
+    content: "";
+    display: inline-block; 
+    /* because the button that we have is also an inline-block */
+    height: 100%;
+    width: 100%;
+    /* pseudo elemnt is treated like a child of the button
+    so the size is 100% of the button (the same as the button) */
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 182-184 lines were used to put the pseudo element behind */
+    z-index: -1; 
+    transition: all 0.4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    /* transform: scale(1.5); increases size to 1.5 the size of the original button */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /* animation starts from 100% and step-by-step 
+    goes through other points eventually reaching 0% */
 }
