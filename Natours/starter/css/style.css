@@ -13,10 +13,14 @@ This is needed because browsers apply some margins or padding by default to cert
 
  */
 
-* {
+*,
+*::after,
+*::before {
     margin : 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit; /* by setting this (it selects each and every element on the page)
+    it will automatically inherit whatever we put in box-sizing in body element */
+    /* box-sizing: border-box; */
 }
 
 /* border-box - borders and paddings are no longer added to the total width or height
@@ -53,6 +57,7 @@ body {
     color: #777;
     /* padding: 30px; */
     padding: 3rem;
+    box-sizing: border-box; /* moved from * universal selector */
 }
 
 .header {
