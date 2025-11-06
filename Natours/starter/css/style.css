@@ -79,7 +79,7 @@ body {
     position: relative;
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem;
@@ -87,12 +87,12 @@ body {
     left: 40px; */
 }
 
-.logo{
+.header__logo{
     height: 3.5rem;
     /* height: 35px; */
 }
 
-.text-box{
+.header__text-box{
     position: absolute;
     top: 40%;
     left: 50%;
@@ -110,7 +110,7 @@ body {
     margin-bottom: 6rem;
     /* margin-bottom: 60px; */
 }
-.heading-primary-main{
+.heading-primary--main{
     display: block;
     font-size: 6rem;
     /* font-size: 60px; */
@@ -130,7 +130,7 @@ body {
 
     */
 }
-.heading-primary-sub{
+.heading-primary--sub{
     display: block;
     font-size: 2rem;
     /* font-size: 20px; */
@@ -222,7 +222,7 @@ different properties. One is opacity and the other is transform */
 
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -245,7 +245,7 @@ different properties. One is opacity and the other is transform */
     transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -255,7 +255,7 @@ different properties. One is opacity and the other is transform */
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
     animation-fill-mode: backwards; /* animation starts from 100% and step-by-step 
     goes through other points eventually reaching 0% */
