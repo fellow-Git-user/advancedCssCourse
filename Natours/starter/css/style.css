@@ -12,6 +12,7 @@ and then apply these declarations on them. These CSS rules are called "simple re
 This is needed because browsers apply some margins or padding by default to certain elements
 
  */
+
 * {
     margin : 0;
     padding: 0;
@@ -21,16 +22,37 @@ This is needed because browsers apply some margins or padding by default to cert
 /* border-box - borders and paddings are no longer added to the total width or height
 that we specify to the box */
 
+
+/* root font size is set in html selector. 10 is set just for simplicit purpose.
+for example 10px is 1 rem. 1.5rem is 15px */
+/* using this technique it is far more easier to use rems instead of ems, because
+ems do not depend on root font size but rather on font size of the parent element */
+/* html {
+    font-size: 10px;
+} */
+
+/* it is actually a bad practice to set font-size in pixels, because it overwrites
+browser's font size settings that the user can manually change in the settings. Imagine a 
+person with a bad sight adjusting browser's font size settings manually. In our page the change
+would not reflect because we declared the font size value and overwrote browser's.   */
+
+/* default browser's font size value is 16px. 10/16 = 0.625. 0.625 * 16 = 10 */
+html {
+    font-size: 62.5%;
+} 
+
 /* we specify font in body, but not in universal selector because the properties
 related to font are usually inherited */
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+
+    /* font-size: 16px; */
     line-height: 1.7; 
     /* 1.7 times bigger than the predefined line-height that we would have without this; */
     color: #777;
-    padding: 30px;
+    /* padding: 30px; */
+    padding: 3rem;
 }
 
 .header {
@@ -54,12 +76,15 @@ body {
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
+    /* top: 40px;
+    left: 40px; */
 }
 
 .logo{
-    height: 35px;
+    height: 3.5rem;
+    /* height: 35px; */
 }
 
 .text-box{
@@ -77,13 +102,16 @@ body {
     /* sometimes animations look like the move to the tope a tiny bit.
     Actually its the entire parent element that moves and gives that shaky effect.
     backface-visibility: hidden prevents this shakiness from happening */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
+    /* margin-bottom: 60px; */
 }
 .heading-primary-main{
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
+    /* font-size: 60px; */
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
+    /* letter-spacing: 35px; */
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -99,9 +127,11 @@ body {
 }
 .heading-primary-sub{
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
+    /* font-size: 20px; */
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
+    /* letter-spacing: 17.4px; */
     animation: moveInRight 1s ease-out;  /* shorthand property */
 }
 /* for browser performance it is best to only animate two
@@ -109,11 +139,13 @@ different properties. One is opacity and the other is transform */
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
+        /* transform: translateX(-100px); */
     }
 
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem)
+        /* transform: translateX(10px); */
     }
 
     100% {
@@ -124,11 +156,13 @@ different properties. One is opacity and the other is transform */
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
+        /* transform: translateX(100px); */
     }
 
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
+        /* transform: translateX(-10px); */
     }
 
     100% {
@@ -139,7 +173,8 @@ different properties. One is opacity and the other is transform */
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
+        /* transform: translateY(30px); */
     }
 
     100% {
@@ -152,10 +187,12 @@ different properties. One is opacity and the other is transform */
 .btn:visited{
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
+    /* padding: 15px 40px; */
     display: inline-block;
     /* inline-block elements are treated as if they are text */
-    border-radius: 100px;
+    border-radius: 10rem;
+    /* border-radius: 100px; */
     transition: all .2s;
     /* all - we dont need to specify each and every property. All properties are enabled to
     to be animated. So hover and active will be animated in relation to 
@@ -166,15 +203,17 @@ different properties. One is opacity and the other is transform */
      */
     position: relative; /* this is needed because main button 
     should be reference to the ::after  pseudo */
+    font-size: 1.6rem;
 }
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, .2); */
 }
 .btn:active{
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, .2); */
 
 }
 
@@ -191,7 +230,8 @@ different properties. One is opacity and the other is transform */
     width: 100%;
     /* pseudo elemnt is treated like a child of the button
     so the size is 100% of the button (the same as the button) */
-    border-radius: 100px;
+    border-radius: 10rem;
+    /* border-radius: 100px; */
     position: absolute;
     top: 0;
     left: 0;
