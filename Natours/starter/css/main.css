@@ -1,128 +1,3 @@
-/*  universal selector selects each and every element on the page 
-and then apply these declarations on them. These CSS rules are called "simple reset".
-This is needed because browsers apply some margins or padding by default to certain elements
-
- */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit; /* by setting this (it selects each and every element on the page)
-it will automatically inherit whatever we put in box-sizing in body element */
-  /* box-sizing: border-box; */
-}
-
-/* border-box - borders and paddings are no longer added to the total width or height
-that we specify to the box */
-/* root font size is set in html selector. 10 is set just for simplicity purpose.
-for example 10px is 1 rem. 1.5rem is 15px */
-/* using this technique it is far more easier to use rems instead of ems, because
-ems do not depend on root font size but rather on font size of the parent element */
-/* html {
-    font-size: 10px;
-} */
-/* it is actually a bad practice to set font-size in pixels, because it overwrites
-browser's font size settings that the user can manually change in the settings. Imagine a 
-person with a bad sight adjusting browser's font size settings manually. In our page the change
-would not reflect because we declared the font size value and overwrote browser's.   */
-/* default browser's font size value is 16px. 10/16 = 0.625. 0.625 * 16 = 10 */
-html {
-  font-size: 62.5%;
-}
-
-/* we specify font in body, but not in universal selector because the properties
-related to font are usually inherited */
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  /* 1.7 times bigger than the predefined line-height that we would have without this; */
-  color: #777;
-  /* padding: 30px; */
-  padding: 3rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* moved from * universal selector */
-}
-
-.header {
-  height: 95vh;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /* to specify gradient we always use the background-image property.
-    We want the background to stay on top and so it actually has to be
-    the first background-image that we specify. WE put gradient, then comma img*/
-  background-size: cover;
-  /* whatever the width of the viewport or the element it will always
-  try to fit the element inside the box   */
-  background-position: top;
-  /* ensures whatever the viewport size the top of the image is always 
-  stays at the top of container */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative;
-}
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-  /* top: 40px;
-  left: 40px; */
-}
-.header__logo {
-  height: 3.5rem;
-  /* height: 35px; */
-}
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  /* sometimes animations look like the move to the tope a tiny bit.
-  Actually its the entire parent element that moves and gives that shaky effect.
-  backface-visibility: hidden prevents this shakiness from happening */
-  margin-bottom: 6rem;
-  /* margin-bottom: 60px; */
-}
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  /* font-size: 60px; */
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  /* letter-spacing: 35px; */
-  -webkit-animation-name: moveInLeft;
-          animation-name: moveInLeft;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-  /* with ease-in animation will start faster, and become slower by the end,
-  but ease-out starts slower and becomes faster by the end */
-  /* animation-delay: 1s; 
-  animation-iteration-count: 3; */
-}
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  /* font-size: 20px; */
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /* letter-spacing: 17.4px; */
-  -webkit-animation: moveInRight 1s ease-out;
-          animation: moveInRight 1s ease-out; /* shorthand property */
-}
-
 /* for browser performance it is best to only animate two
 different properties. One is opacity and the other is transform */
 @-webkit-keyframes moveInLeft {
@@ -221,6 +96,98 @@ different properties. One is opacity and the other is transform */
             transform: translate(0);
   }
 }
+/*  universal selector selects each and every element on the page 
+and then apply these declarations on them. These CSS rules are called "simple reset".
+This is needed because browsers apply some margins or padding by default to certain elements
+
+ */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; /* by setting this (it selects each and every element on the page)
+it will automatically inherit whatever we put in box-sizing in body element */
+  /* box-sizing: border-box; */
+}
+
+/* border-box - borders and paddings are no longer added to the total width or height
+that we specify to the box */
+/* root font size is set in html selector. 10 is set just for simplicity purpose.
+for example 10px is 1 rem. 1.5rem is 15px */
+/* using this technique it is far more easier to use rems instead of ems, because
+ems do not depend on root font size but rather on font size of the parent element */
+/* html {
+    font-size: 10px;
+} */
+/* it is actually a bad practice to set font-size in pixels, because it overwrites
+browser's font size settings that the user can manually change in the settings. Imagine a 
+person with a bad sight adjusting browser's font size settings manually. In our page the change
+would not reflect because we declared the font size value and overwrote browser's.   */
+/* default browser's font size value is 16px. 10/16 = 0.625. 0.625 * 16 = 10 */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* moved from * universal selector */
+}
+
+/* we specify font in body, but not in universal selector because the properties
+related to font are usually inherited */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  /* 1.7 times bigger than the predefined line-height that we would have without this; */
+  color: #777;
+  /* padding: 30px; */
+  padding: 3rem;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  /* sometimes animations look like the move to the tope a tiny bit.
+  Actually its the entire parent element that moves and gives that shaky effect.
+  backface-visibility: hidden prevents this shakiness from happening */
+  margin-bottom: 6rem;
+  /* margin-bottom: 60px; */
+}
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  /* font-size: 60px; */
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  /* letter-spacing: 35px; */
+  -webkit-animation-name: moveInLeft;
+          animation-name: moveInLeft;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  /* with ease-in animation will start faster, and become slower by the end,
+  but ease-out starts slower and becomes faster by the end */
+  /* animation-delay: 1s; 
+  animation-iteration-count: 3; */
+}
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  /* font-size: 20px; */
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  /* letter-spacing: 17.4px; */
+  -webkit-animation: moveInRight 1s ease-out;
+          animation: moveInRight 1s ease-out; /* shorthand property */
+}
+
 .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -294,4 +261,40 @@ should be reference to the ::after  pseudo */
   -webkit-animation-fill-mode: backwards;
           animation-fill-mode: backwards; /* animation starts from 100% and step-by-step 
 goes through other points eventually reaching 0% */
+}
+
+.header {
+  height: 95vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /* to specify gradient we always use the background-image property.
+    We want the background to stay on top and so it actually has to be
+    the first background-image that we specify. WE put gradient, then comma img*/
+  background-size: cover;
+  /* whatever the width of the viewport or the element it will always
+  try to fit the element inside the box   */
+  background-position: top;
+  /* ensures whatever the viewport size the top of the image is always 
+  stays at the top of container */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+}
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  /* top: 40px;
+  left: 40px; */
+}
+.header__logo {
+  height: 3.5rem;
+  /* height: 35px; */
+}
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */
