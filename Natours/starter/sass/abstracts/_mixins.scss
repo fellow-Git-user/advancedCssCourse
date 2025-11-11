@@ -1,0 +1,11 @@
+
+// this is called the clearfix hack and this problem of having 0 pixels height
+// (in this case on row) is solved by the code below. This problem only occurs
+// in float layouts because child elements of row element are floated
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table; //standard version
+        clear: both;
+    }
+}
