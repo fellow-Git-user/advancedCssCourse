@@ -69,3 +69,17 @@ body {
         text-shadow: .5rem 1rem 2rem rgba(v.$color-black, .2);
     }
 }
+
+.heading-tertiary {
+    font-size: v.$default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: v.$default-font-size;
+    
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
