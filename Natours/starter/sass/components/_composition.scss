@@ -1,0 +1,28 @@
+@use '../abstracts/variables' as v;
+
+//as soon as we set position to absolute on an element these elements 
+//will be placed according to the reference and the ref is the first 
+//parent that it encounters which has its position set to something
+
+.composition {
+    position: relative;
+    &__photo {
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba(v.$color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+        }
+        &--p2 {
+            right: 0;
+            top: 2rem;
+        }
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+        }
+    }
+}
