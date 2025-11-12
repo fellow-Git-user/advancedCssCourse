@@ -31,10 +31,14 @@
         &:hover {
             border-radius: 0;
             outline: 1.5rem solid v.$color-primary;
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-.5rem);
             box-shadow: 0 2.5rem 4rem rgba(v.$color-black, .5);
             z-index: 20; //we use z-index so that it overlap other content
 
         }
+    }
+    // .composition:hover .composition__photo:not(:hover)
+    &:hover &__photo:not(:hover){
+        transform: scale(.95);
     }
 }

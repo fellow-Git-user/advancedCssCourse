@@ -366,11 +366,15 @@ goes through other points eventually reaching 0% */
 .composition__photo:hover {
   border-radius: 0;
   outline: 1.5rem solid #55c57a;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  -webkit-transform: scale(1.05) translateY(-0.5rem);
+          transform: scale(1.05) translateY(-0.5rem);
   -webkit-box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
           box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
   z-index: 20;
+}
+.composition:hover .composition__photo:not(:hover) {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .row {
