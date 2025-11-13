@@ -4,7 +4,6 @@
 .row {
     // width: 1140px; is the standard according to Jonas 
     max-width: v.$grid-width; //1140 / 10 = 114rem like we specified in base
-    background-color: #eee;
     margin: 0 auto; // to center block elements inside another block element
     
     &:not(:last-child) {
