@@ -13,4 +13,15 @@
     rgba(v.$color-primary-dark, 0.8)),
     url(../img/nat-4.jpg);
     background-size: cover;
+    transform: skewY(-7deg);
+    margin-top: -10rem;
+
+    // > - means direct child. Thats how we select everything that is direct child
+    // of the .section-features class
+    //we could go to features fox and write css there to bring cards horizontally,
+    // but if we add more sections in the future, we would need to go there and change it separately
+    // now we do that directly and with less code  
+    & > * {
+        transform: skewY(7deg);
+    }
 }
