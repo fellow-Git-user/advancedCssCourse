@@ -1,4 +1,11 @@
+@use '../abstracts/variables' as v;
+
 .card {
+    position: relative;
+    //we need to specify height because after specifying position: absolute
+    //cards lose height as they are taken out of the natural flow, therefore,
+    //the parent collapsed and lost its height. we need to specify height by ourselves
+    height: 50rem; 
     // perspective makes rotation  appear like its moving towards you. Like coming out of the page
     //perspective always needs to be defined on the parent element of the one
     // where the transform (rotation) occurs. Huge number of px is required.
@@ -6,17 +13,36 @@
     perspective: 150rem;
 
     &__side {
-        background-color: orangered;
-        color: white;
         font-size: 2rem;
         height: 50rem;
-        transition: all .8s;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        //since we game them an absolute positioning the elements start fitting
+        //to their width. So cards in this case is as wide as their text is/takes place
+        //therefore we need to 
+        width: 100%;
+        //this property hides the back-part of the element if we set to hidden
+        backface-visibility: hidden;
+
+        &--front {
+            background-color: v.$color-white;
+        }
+        &--back {
+            background-color: v.$color-primary;
+            transform: rotateY(180deg);
+        }
     }
     
 
-     &:hover &__side {
-        // without perspective, it would be just a simple, unnatural rotation
-        transform: rotateY(180deg);
-     }
+    &:hover &__side--front {
+    // without perspective, it would be just a simple, unnatural rotation
+    transform: rotateY(180deg);
+    }
+    &:hover &__side--back {
+    // without perspective, it would be just a simple, unnatural rotation
+    transform: rotateY(0);
+    }
 
 }
