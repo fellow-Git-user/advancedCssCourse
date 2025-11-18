@@ -1,0 +1,22 @@
+.card {
+    // perspective makes rotation  appear like its moving towards you. Like coming out of the page
+    //perspective always needs to be defined on the parent element of the one
+    // where the transform (rotation) occurs. Huge number of px is required.
+    // 
+    perspective: 150rem;
+
+    &__side {
+        background-color: orangered;
+        color: white;
+        font-size: 2rem;
+        height: 50rem;
+        transition: all .8s;
+    }
+    
+
+     &:hover &__side {
+        // without perspective, it would be just a simple, unnatural rotation
+        transform: rotateY(180deg);
+     }
+
+}
