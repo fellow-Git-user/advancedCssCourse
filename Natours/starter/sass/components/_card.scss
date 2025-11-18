@@ -25,13 +25,18 @@
         width: 100%;
         //this property hides the back-part of the element if we set to hidden
         backface-visibility: hidden;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba(v.$color-black, .15);
 
         &--front {
             background-color: v.$color-white;
         }
         &--back {
-            background-color: v.$color-primary;
             transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, v.$color-secondary-light, v.$color-secondary-dark);
+            }
         }
     }
     
