@@ -5,7 +5,7 @@
     //we need to specify height because after specifying position: absolute
     //cards lose height as they are taken out of the natural flow, therefore,
     //the parent collapsed and lost its height. we need to specify height by ourselves
-    height: 50rem; 
+    height: 52rem; 
     // perspective makes rotation  appear like its moving towards you. Like coming out of the page
     //perspective always needs to be defined on the parent element of the one
     // where the transform (rotation) occurs. Huge number of px is required.
@@ -13,8 +13,7 @@
     perspective: 150rem;
 
     &__side {
-        font-size: 2rem;
-        height: 50rem;
+        height: 52rem;
         transition: all .8s ease;
         position: absolute;
         top: 0;
@@ -26,6 +25,7 @@
         //this property hides the back-part of the element if we set to hidden
         backface-visibility: hidden;
         border-radius: 3px;
+        overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba(v.$color-black, .15);
 
         &--front {
@@ -42,12 +42,79 @@
     
 
     &:hover &__side--front {
-    // without perspective, it would be just a simple, unnatural rotation
-    transform: rotateY(180deg);
+        // without perspective, it would be just a simple, unnatural rotation
+        transform: rotateY(-180deg);
     }
     &:hover &__side--back {
-    // without perspective, it would be just a simple, unnatural rotation
-    transform: rotateY(0);
+        // without perspective, it would be just a simple, unnatural rotation
+        transform: rotateY(0);
     }
 
+
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            //remember that code will be compiled in to CSS later, so we need to
+            //go from css file to the img folder
+            background-image: linear-gradient(to right bottom, v.$color-secondary-light, v.$color-secondary-dark), url(../img/nat-5.jpg);
+        }
+        &--2 {
+            //remember that code will be compiled in to CSS later, so we need to
+            //go from css file to the img folder
+            background-image: url(../img/nat-5.jpg);
+        }
+        &--3 {
+            //remember that code will be compiled in to CSS later, so we need to
+            //go from css file to the img folder
+            background-image: url(../img/nat-5.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: v.$color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        //without it the heading text is treated like one line so there 
+        //is padding at the start of THE and right after EXPLORER. There 
+        //was no padding after the sea, and before explorer. 
+        //box-decoration-break: clone solves this problem. Just comment it out and take a look at it
+        box-decoration-break: clone;
+        &--1 {
+            background-image: linear-gradient(to right bottom, 
+            rgba(v.$color-secondary-light, .85), 
+            rgba(v.$color-secondary-dark, 85));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+                
+                &:not(:last-child) {
+                    border-bottom: 1px solid v.$color-grey-light-2;
+                }
+            }
+        }
+    }
 }
