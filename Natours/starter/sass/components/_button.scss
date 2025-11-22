@@ -50,6 +50,14 @@
         background-color: v.$color-white;
         }
     }
+    &--green {
+        background-color: v.$color-primary;
+        color: v.$color-white;
+
+        &::after {
+        background-color: v.$color-primary;
+        }
+    }
     
     &::after{
         content: "";

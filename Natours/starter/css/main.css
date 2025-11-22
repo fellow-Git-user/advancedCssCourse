@@ -237,6 +237,14 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.u-margin-top-big {
+  margin-top: 8rem;
+}
+
+.u-margin-top-huge {
+  margin-top: 10rem;
+}
+
 .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -285,6 +293,13 @@ should be reference to the ::after  pseudo */
 }
 .btn--white::after {
   background-color: #fff;
+}
+.btn--green {
+  background-color: #55c57a;
+  color: #fff;
+}
+.btn--green::after {
+  background-color: #55c57a;
 }
 .btn::after {
   content: "";
@@ -369,6 +384,14 @@ goes through other points eventually reaching 0% */
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ffb900), to(#ff7730));
   background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
 }
+.card__side--back-2 {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#7ed56f), to(#28b485));
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+}
+.card__side--back-3 {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#2998ff), to(#5643fa));
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
+}
 .card:hover .card__side--front {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
@@ -388,10 +411,12 @@ goes through other points eventually reaching 0% */
   background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg);
 }
 .card__picture--2 {
-  background-image: url(../img/nat-5.jpg);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#7ed56f), to(#28b485)), url(../img/nat-6.jpg);
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url(../img/nat-6.jpg);
 }
 .card__picture--3 {
-  background-image: url(../img/nat-5.jpg);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#2998ff), to(#5643fa)), url(../img/nat-7.jpg);
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url(../img/nat-7.jpg);
 }
 .card__heading {
   font-size: 2.8rem;
@@ -413,6 +438,14 @@ goes through other points eventually reaching 0% */
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 185, 0, 0.85)), to(#ff7730));
   background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), #ff7730);
 }
+.card__heading-span--2 {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.85)), to(#28b485));
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), #28b485);
+}
+.card__heading-span--3 {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(41, 152, 255, 0.85)), to(#5643fa));
+  background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), #5643fa);
+}
 .card__details {
   padding: 3rem;
 }
@@ -428,6 +461,28 @@ goes through other points eventually reaching 0% */
 }
 .card__details ul li:not(:last-child) {
   border-bottom: 1px solid #eee;
+}
+.card__cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+}
+.card__price-box {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 8rem;
+}
+.card__price-only {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.card__price-value {
+  font-size: 6rem;
+  font-weight: 100;
 }
 
 .composition {
@@ -593,6 +648,6 @@ goes through other points eventually reaching 0% */
 
 .section-tours {
   background-color: #f7f7f7;
-  padding: 25rem 0 50rem 0;
+  padding: 25rem 0 15rem 0;
   margin-top: -10rem;
 }/*# sourceMappingURL=main.css.map */
