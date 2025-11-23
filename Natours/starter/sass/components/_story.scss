@@ -7,6 +7,7 @@
     background-color: v.$color-white;
     border-radius: 3px;
     padding: 6rem;
+    padding-left: 9rem;
     font-size: v.$default-font-size;
 
     &__shape {
@@ -15,5 +16,14 @@
         //in order to make the rest of the content to float around it
         float: left;
         background-color: olivedrab;
+        //first is size (radius) of the circle, second param is the position of the center of the circle
+        //50% is half the height and the width (7.5 rem in this case)
+        //50% horizontally and vertically
+        shape-outside: circle(50% at 50% 50%); 
+        //without the element being floated shape-outside would not work
+        //also the element must have defined dimensions
+
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem);
     }
 }
