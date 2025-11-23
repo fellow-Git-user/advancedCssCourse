@@ -9,13 +9,23 @@
     padding: 6rem;
     padding-left: 9rem;
     font-size: v.$default-font-size;
+    transform: skewX(-12deg);
+
+    //we use the direct child selector and then selected everything
+    //in this case it is story__shape and story__text
+    //but it does not work like that because the story__shape 
+    //already has transform: translate, and it overwrites 
+    //our direct child selector. Therefore we need to add this rule
+    //to separate classes. __shape and __text
+    // & > * {
+    //     transform: skewX(12deg);
+    // }
 
     &__shape {
         width: 15rem;
         height: 15rem;
         //in order to make the rest of the content to float around it
         float: left;
-        background-color: olivedrab;
         //first is size (radius) of the circle, second param is the position of the center of the circle
         //50% is half the height and the width (7.5 rem in this case)
         //50% horizontally and vertically
@@ -24,6 +34,17 @@
         //also the element must have defined dimensions
 
         clip-path: circle(50% at 50% 50%);
-        transform: translateX(-3rem);
+        transform: translateX(-3rem) skewX(12deg);
+    }
+
+    //flexible images for responsive design they always need a width
+    &__img {
+        //img is wider than its height, and with 100% width it cannot fill the entire circle
+        // width: 100%; 
+        height: 100%; 
+    }
+
+    &__text {
+        transform: skewX(12deg);
     }
 }
