@@ -1,0 +1,25 @@
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: .15;
+    overflow: hidden;
+
+    &__content {
+        //two height and width 100% does not make the video take the entire
+        //space of the section, because video tries to maintain the
+        //aspect ratio 
+        height: 100%;
+        width: 100%;
+        //element with object-fit cover will fill the entire parent 
+        //while sill maintaining its aspect ration. The part that does not
+        // fit gets clipped off
+        object-fit: cover;
+        //object-fit: fill will fill in all the width and height
+        //but not maintaining its aspect ratio
+
+    }
+}
