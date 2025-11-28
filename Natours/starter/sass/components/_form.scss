@@ -1,0 +1,62 @@
+@use '../abstracts/variables' as v;
+
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-family: inherit;
+        font-size: 1.5rem;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba(v.$color-white, .5);
+        border: none;
+        //this one below is needed because without it
+        //the input element below moves down 3px when 
+        //the first input element is clicked
+        //and this movement is visible
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba(v.$color-black, .1);
+            border-bottom: 3px solid v.$color-primary;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid v.$color-secondary-dark;
+
+        }
+
+        &::-webkit-input-placeholder {
+            color: v.$color-grey-dark-2;
+        }
+
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        //without display: block margin properties will not work
+        display: block;
+        transition: all .3s;
+    }
+
+    // + means adjacent sibling, the one immediately
+    //after the element that we selected 
+    // ~ is used if there are more levels in-between
+    //for example input then button and only then label
+    &__input:placeholder-shown + &__label  {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+}
