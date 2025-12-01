@@ -222,30 +222,30 @@ body {
 }
 
 .u-center-text {
-  text-align: center;
+  text-align: center !important;
 }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem;
+  margin-bottom: 8rem !important;
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem !important;
 }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem !important;
 }
 
 .u-margin-top-big {
-  margin-top: 8rem;
+  margin-top: 8rem !important;
 }
 
 .u-margin-top-huge {
-  margin-top: 10rem;
+  margin-top: 10rem !important;
 }
 
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -266,6 +266,8 @@ body {
   position: relative; /* this is needed because main button 
 should be reference to the ::after  pseudo */
   font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
 }
 .btn:hover {
   -webkit-transform: translateY(-3px);
@@ -280,7 +282,8 @@ should be reference to the ::after  pseudo */
           transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
-.btn:active {
+.btn:active, .btn:focus {
+  outline: none;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
@@ -600,6 +603,9 @@ goes through other points eventually reaching 0% */
   width: 49%;
   display: inline-block;
 }
+.form__radio-input {
+  display: none;
+}
 .form__radio-label {
   font-size: 1.6rem;
   cursor: pointer;
@@ -629,9 +635,11 @@ goes through other points eventually reaching 0% */
           transform: translate(-50%, -50%);
   background-color: #55c57a;
   opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
-  background-color: red;
+  opacity: 1;
 }
 
 .feature-box {

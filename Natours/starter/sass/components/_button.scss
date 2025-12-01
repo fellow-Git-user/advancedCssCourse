@@ -1,6 +1,7 @@
 @use '../abstracts/variables' as v;
 
 .btn{
+    &,
     &:link, 
     &:visited{
         text-transform: uppercase;
@@ -22,6 +23,10 @@
         position: relative; /* this is needed because main button 
         should be reference to the ::after  pseudo */
         font-size: v.$default-font-size;
+
+        //change for the <button> element
+        border: none;
+        cursor: pointer;
     }
 
     &:hover {
@@ -36,7 +41,9 @@
         }
     }
 
-    &:active{
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba(v.$color-black, .2);
         /* box-shadow: 0 5px 10px rgba(0, 0, 0, .2); */   
