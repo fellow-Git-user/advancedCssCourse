@@ -805,6 +805,22 @@ goes through other points eventually reaching 0% */
   text-align: center;
 }
 
+.footer {
+  background-color: #333;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+}
+.footer__logo-box {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+.footer__logo {
+  width: 15rem;
+  height: auto;
+}
+.footer__list {
+  list-style: none;
+}
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;

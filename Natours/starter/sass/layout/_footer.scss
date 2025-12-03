@@ -1,0 +1,35 @@
+@use '../abstracts/variables' as v;
+
+.footer {
+    background-color: v.$color-grey-dark-3;
+    padding: 10rem 0;
+    font-size: 1.4rem;
+
+    &__logo-box {
+        //because img is an inline element and therefore 
+        //it behaves like text
+        text-align: center;
+        margin-bottom: 8rem;
+    }
+
+    &__logo {
+        width: 15rem;
+        height: auto;
+    }
+
+    &__navigation {
+
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+
+    }
+
+    &__link {
+
+    }
+}
